@@ -163,9 +163,9 @@ const getUserProfile = async (req, res) => {
 const uploadAvatar = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log("🔥 AVATAR UPLOAD HIT");
-console.log("FILE:", req.file);
 
+    console.log("🔥 AVATAR UPLOAD HIT");
+    console.log("FILE:", req.file);
 
     if (!req.file) {
       return res.status(400).json({
@@ -174,11 +174,17 @@ console.log("FILE:", req.file);
       });
     }
 
-    await connectClient();
+    if (!ObjectId.isValid(id)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid user ID",
+      });
+    }
+
     const db = client.db("githubclone");
     const usersCollection = db.collection("users");
 
-    const s3Key = `avatars/${id}`;
+    const s3Key = `avatars/${id}-${Date.now()}`;
 
     await s3.upload({
       Bucket: S3_BUCKET,
@@ -200,13 +206,14 @@ console.log("FILE:", req.file);
     });
 
   } catch (error) {
-    console.log("Avatar upload error:", error);
+    console.error("Avatar upload error:", error);
     return res.status(500).json({
       success: false,
       message: "Failed to upload avatar",
     });
   }
 };
+
 
 const updateUserProfile = async(req, res) => {
     const currentID = req.params.id;
