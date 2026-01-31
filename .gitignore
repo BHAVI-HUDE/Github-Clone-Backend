@@ -30,7 +30,7 @@ build/
 commits/
 staging/
 
-# Config (if contains sensitive data)
+# Config 
 config/aws-config.js
 
 # Test coverage
