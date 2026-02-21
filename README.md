@@ -1,12 +1,12 @@
-⚙️ GitHub Clone – Backend
+⚙️ GitForge – Backend
 
 A RESTful API Backend for GitHub Clone Application
 
-🔗 Repository: https://github.com/BHAVI-HUDE/Github-Clone-Backend
+🔗 Repository: https://github.com/BHAVI-HUDE/GitForge-Backend
 
 📌 Overview
 
-The GitHub Clone Backend is a RESTful API built with Node.js, Express, and MongoDB to support core GitHub-like features including user profiles, repositories, and activity feeds.
+The GitForge Backend is a RESTful API built with Node.js, Express, and MongoDB to support core GitHub-like features including user profiles, repositories, and activity feeds.
 
 This backend implements secure routing, data validation, database operations, and API endpoints consumed by the frontend application to create a seamless full-stack GitHub experience.
 
@@ -88,10 +88,6 @@ Repositories
 🔹 Integrated MongoDB with schema validation
 🔹 Implemented secure and structured routing
 🔹 Practiced middleware and error handling
-
-📄 License
-
-This project is licensed under the MIT License and is intended for learning and educational purposes.
 
 👨‍💻 Author
 
